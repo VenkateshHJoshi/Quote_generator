@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Motivation.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivation Quotes</title>
+</head>
+<body>
+    <section>
+        <div class="quote-box">
+            <h2>Quote Of The Day</h2>
+            <blockquote id="quote">Loading....</blockquote>
+            <span id="author">Loading....</span>
+            <div>
+                <button onclick="fetchRandomQuote()"><b>New Quote</b></button>
+                <button onclick="tweet()">Tweet</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // This function fetches a random quote and its author from the API
+        async function fetchRandomQuote() {
+            const apiUrl = 'https://type.fit/api/quotes';
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const randomQuote = data[randomIndex].text;
+                const randomAuthor = data[randomIndex].author || 'Unknown';
+                updateQuoteAndAuthor(randomQuote, randomAuthor);
+            } catch (error) {
+                console.error('Error fetching quote:', error);
+            }
+        }
+
+        function updateQuoteAndAuthor(quote, author) {
+            const quoteElement = document.getElementById('quote');
+            const authorElement = document.getElementById('author');
+
+            // Update the content of the elements with the fetched quote and author
+            quoteElement.textContent = quote;
+            authorElement.textContent = '- ' + author;
+        }
+
+        function tweet(){
+    window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML +
+    "--- by" + author.innerHTML, "Tweet window", "width=600,height=300");
+}
+
+        // Fetch a random quote and author when the page loads
+        window.addEventListener('load', fetchRandomQuote);
+    </script>
+</body>
+</html>

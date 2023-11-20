@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ font-family: 'Playfair Display', serif;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: url('rainbow-colors-colorful-multi-color-waves-aesthetic-5k-5000x3750-1765.jpg');
+    background-position: center;
+    background-size: cover;
+    animation: anim 5s linear infinite;
+    overflow: hidden;
+}
+@keyframes anim {
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.quote-box{
+    background: transparent;
+    backdrop-filter: blur(15px);
+    width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 20px 0px rgba(0,0,0,0.15);
+    border-top: 5px solid rgb(224, 18, 155);
+    border-bottom: 5px solid rgb(224, 18, 155);
+    overflow: hidden;
+}
+.quote-box h2{
+    font-size: 32px;
+    margin-bottom:40px;
+    position: relative;
+}
+.quote-box h2::after{
+    content: '';
+    width: 75px;
+    height: 3px;
+    border-radius: 3px;
+    background: rgb(23,124,229);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.quote-box blockquote{
+    font-size: 26px;
+    min-height: 110px;
+}
+.quote-box blockquote::before, .quote-box blockquote::after{
+    content: '"';
+}
+.quote-box span{
+    display: block;
+    margin-top: 10px;
+    float: right;
+    position: relative;
+}
+.quote-box span::before{
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: rgb(23,124,229);
+    position: absolute;
+    top: 50%;
+    left: -30px;
+}
+.quote-box div{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.quote-box button{
+    position: relative;
+    background: rgb(23,124,229);
+    color: #05faee;
+    border-radius: 25px;
+    border: 1px solid rgb(23,124,229);
+    width: 150px;
+    height: 50px;
+    display: flex;
+    display: inline-block;
+    text-transform: uppercase;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.quote-box button:hover{
+    color: #255784;
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3,0 0 40px #2196f3,0 0 80px #2196f3;
+}
